@@ -1,0 +1,30 @@
+{
+  "lockfileVersion": 1,
+  "workspaces": {
+    "": {
+      "name": "monorepo",
+    },
+    "apps/app-a": {
+      "name": "app-a",
+      "dependencies": {
+        "es-toolkit": "catalog:",
+      },
+    },
+    "apps/app-b": {
+      "name": "app-b",
+      "dependencies": {
+        "es-toolkit": "catalog:",
+      },
+    },
+  },
+  "catalog": {
+    "es-toolkit": "1.39.7",
+  },
+  "packages": {
+    "app-a": ["app-a@workspace:apps/app-a"],
+
+    "app-b": ["app-b@workspace:apps/app-b"],
+
+    "es-toolkit": ["es-toolkit@1.39.7", "", {}, "sha512-ek/wWryKouBrZIjkwW2BFf91CWOIMvoy2AE5YYgUrfWsJQM2Su1LoLtrw8uusEpN9RfqLlV/0FVNjT0WMv8Bxw=="],
+  }
+}

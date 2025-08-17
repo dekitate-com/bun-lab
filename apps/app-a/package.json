@@ -1,0 +1,9 @@
+{
+  "name": "app-a",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "es-toolkit": "catalog:"
+  }
+}

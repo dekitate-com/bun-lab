@@ -1,0 +1,68 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":dependencyDashboard",
+    ":semanticCommits",
+    "group:monorepos",
+    "group:recommended"
+  ],
+  "timezone": "Asia/Tokyo",
+  "schedule": ["after 10pm and before 5am on every weekday", "every weekend"],
+  "labels": ["renovate", "dependencies"],
+  "packageRules": [
+    {
+      "description": "Automatically merge minor and patch-level non-major updates",
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true,
+      "automergeType": "pr"
+    },
+    {
+      "description": "Disable automerge for major updates",
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    },
+    {
+      "description": "Group all non-major updates together",
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch"
+    },
+    {
+      "description": "Pin dependencies for apps",
+      "matchPaths": ["apps/**"],
+      "rangeStrategy": "pin"
+    },
+    {
+      "description": "Use range for packages",
+      "matchPaths": ["packages/**"],
+      "rangeStrategy": "auto"
+    },
+    {
+      "description": "Group Bun updates",
+      "matchPackageNames": ["bun"],
+      "groupName": "Bun"
+    }
+  ],
+  "prConcurrentLimit": 10,
+  "prCreation": "not-pending",
+  "prHourlyLimit": 2,
+  "semanticCommits": "enabled",
+  "commitMessagePrefix": "chore(deps):",
+  "commitMessageAction": "update",
+  "commitMessageTopic": "{{depName}}",
+  "commitMessageExtra": "to {{newVersion}}",
+  "rangeStrategy": "auto",
+  "bun": {
+    "enabled": true
+  },
+  "postUpdateOptions": ["bunInstall"],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["before 5am on monday"]
+  },
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "labels": ["security"]
+  }
+}

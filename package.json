@@ -1,0 +1,23 @@
+{
+  "name": "monorepo",
+  "version": "1.0.0",
+  "description": "Bun workspace monorepo",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "packages/*"
+    ],
+    "catalog": {
+      "es-toolkit": "1.39.7"
+    }
+  },
+  "scripts": {
+    "build": "bun run --filter='*' build",
+    "dev": "bun run --filter='*' dev",
+    "test": "bun run --filter='*' test",
+    "lint": "bun run --filter='*' lint",
+    "clean": "bun run --filter='*' clean"
+  },
+  "packageManager": "bun@latest"
+}
