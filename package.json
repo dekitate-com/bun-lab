@@ -4,6 +4,6 @@
   "description": "Test monorepo for Renovate",
   "devDependencies": {
     "typescript": "5.9.2",
-    "jest": "27.0.0"
+    "jest": "27.5.1"
   }
 }

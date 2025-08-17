@@ -4,6 +4,6 @@
   "type": "module",
   "private": true,
   "devDependencies": {
-    "jest": "27.0.0"
+    "jest": "27.5.1"
   }
 }
